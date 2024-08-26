@@ -40,7 +40,37 @@ chmod +x hugo-site-manager.sh
 
 
 
-## Contributing
+## :facepunch: Contribution
 
-:facepunch: Contributions are welcome! Please fork the repository and submit a pull request.
+Contributions are welcome! If you'd like to contribute, please follow these steps:
+
+1. **Fork the repository** to your own GitHub account.
+2. **Clone your fork** locally:
+
+```shell
+git clone https://github.com/yourusername/hugo-site-manager.git
+cd manage-repo
+```
+
+**Create a new branch** for your feature or bug fix:
+
+```shell
+git checkout -b my-new-feature
+```
+
+**Make your changes** and commit them with a clear message:
+
+```shell
+git commit -m "Add new feature"
+```
+
+**Push your branch** to your fork:
+
+1. ```shell
+   git push origin my-new-feature
+   ```
+
+2. **Open a Pull Request** on the original repository and describe your changes.
+
+By following these steps, you can help improve the project for everyone!
 
