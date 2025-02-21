@@ -1,110 +1,130 @@
-# Hugo Site Setup Script
 
-This script automates the process of creating and configuring a new Hugo site. It uses external configuration files to customize site creation and theme setup.
+# 🚀 Hugo Site Manager
 
-## Features
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
+![Hugo](https://img.shields.io/badge/Hugo-Static%20Site%20Generator-orange?logo=hugo)
 
-- Creates a new Hugo site in a specified directory.
-- Initializes a Git repository for the site.
-- Adds a specified Hugo theme as a Git submodule.
-- Configures the site to use the specified theme.
-- Optionally starts the Hugo server to preview the site.
+Ce projet fournit un script Python pour automatiser la création, la configuration et la gestion de sites Hugo. Il utilise des fichiers de configuration pour personnaliser la création de sites et l'installation de thèmes.
 
-## Prerequisites
+## Fonctionnalités
 
-- [Hugo](https://gohugo.io/getting-started/installing/) installed on your system.
-- [Git](https://git-scm.com/) installed on your system.
+- Crée un nouveau site Hugo dans un répertoire spécifié.
+- Initialise un dépôt Git pour le site.
+- Ajoute un thème Hugo spécifié comme sous-module Git.
+- Configure le site pour utiliser le thème spécifié.
+- Démarre le serveur Hugo pour prévisualiser le site.
+- Supprime un site existant.
+- Copie le contenu d'un exemple de site à partir du thème.
 
+## Prérequis
 
+- [Python 3.x](https://www.python.org/downloads/)
+- [Hugo](https://gohugo.io/getting-started/installing/)
+- [Git](https://git-scm.com/)
 
-## Usage
+## Installation
 
-1. **Prepare Configuration Files**
-
-   Create configuration files in the `configs` directory. Each configuration file should follow the naming convention `config-<config-name>.env`, where `<config-name>` is a descriptive name for the configuration. Example:
+1. Clonez le dépôt :
 
    ```bash
-   # configs/config-quickstart.env
-   SITE_NAME="quickstart"
-   THEME_REPO="https://github.com/theNewDynamic/gohugo-theme-ananke.git"
-   THEME_NAME="ananke"
+   git clone https://github.com/votre-utilisateur/hugo-site-manager.git
+   cd hugo-site-manager
+   ```
+2. Créez un environnement virtuel et activez-le :
 
-## Run
+   ```shell
+   python3 -m venv hugo-site-manager-env
+   source hugo-site-manager-env/bin/activate
+   ```
+3. Installez les dépendances :
 
-**:warning: <u>Take time to fully understand what this script does before running it</u>**
-
-```shell
-chmod +x hugo-site-manager.sh
-./hugo-site-manager.sh --help
-```
-
-
-
-## How to install the latest version of Hugo on Ubuntu
-
-Visit the [Hugo releases page](https://github.com/gohugoio/hugo/releases) on GitHub to get the download link for the latest version.
-
-Once on the page, find the link to download the binary for your architecture (`hugo_extended_X.X.X_Linux-64bit.tar.gz`).
-
-**Download the latest version using `wget`:**
-
-```shell
-wget https://github.com/gohugoio/hugo/releases/download/v0.124.0/hugo_extended_0.124.0_Linux-64bit.tar.gz
-```
-
-<u>:sunglasses: ​Replace `0.124.0` with the version you want to install if a newer one is available.</u>
-
-**Extract the downloaded file:**
-
-```shell
-tar -xzf hugo_extended_0.124.0_Linux-64bit.tar.gz
-```
-
-**Move the `hugo` binary to a globally accessible directory like `/usr/local/bin`:**
-
-```shell
-sudo mv hugo /usr/local/bin/
-```
-
-**To verify that Hugo is correctly installed and globally accessible, run:**
-
-```shell
-hugo version
-```
-
-
-
-## :facepunch: Contribution
-
-Contributions are welcome! If you'd like to contribute, please follow these steps:
-
-1. **Fork the repository** to your own GitHub account.
-2. **Clone your fork** locally:
-
-```shell
-git clone https://github.com/yourusername/hugo-site-manager.git
-cd manage-repo
-```
-
-**Create a new branch** for your feature or bug fix:
-
-```shell
-git checkout -b my-new-feature
-```
-
-**Make your changes** and commit them with a clear message:
-
-```shell
-git commit -m "Add new feature"
-```
-
-**Push your branch** to your fork:
-
-1. ```shell
-   git push origin my-new-feature
+   ```shell
+   pip install -r requirements.txt
    ```
 
-2. **Open a Pull Request** on the original repository and describe your changes.
+## Utilisation
 
-By following these steps, you can help improve the project for everyone!
+### Préparer les Fichiers de Configuration
 
+Créez un fichier de configuration dans le répertoire `configs`.
+
+Chaque fichier doit suivre la convention de nommage `config-<nom-config>.env`.
+
+Exemple :
+
+```properties
+# configs/config-quickstart.env
+SITE_NAME="mon-site"
+THEME_REPO="https://github.com/theNewDynamic/gohugo-theme-ananke.git"
+THEME_NAME="ananke"
+```
+
+### Exécuter le Script
+
+Le script prend deux arguments principaux : une action et un nom de configuration. Voici les actions disponibles :
+
+- **Créer un site** :
+
+  ```bash
+  python main.py create quickstart --run
+  ```
+
+  L'option `--run` démarre le serveur Hugo après la création du site.
+- **Démarrer le serveur** :
+
+  ```shell
+  python main.py run quickstart
+  ```
+- **Supprimer un site** :
+
+  ```bash
+  python main.py delete quickstart
+  ```
+- **Copier le contenu de l'exemple de site** :
+
+  ```shell
+  python main.py copy-example-site quickstart
+  ```
+
+### Afficher l'Aide
+
+Pour afficher l'aide et les options disponibles :
+
+```shell
+python main.py --help
+```
+
+Pour consulter la documentation des classes et méthodes, utilisez la fonction `help()` de Python :
+
+```shell
+from hugo_site_manager.core import HugoManager
+help(HugoManager)
+```
+
+## Contribution
+
+Les contributions sont les bienvenues ! Pour contribuer, suivez ces étapes :
+
+1. **Forker le dépôt** sur votre compte GitHub.
+2. **Cloner votre fork** localement :
+
+   ```bash
+   git clone https://github.com/votre-utilisateur/hugo-site-manager.git
+   cd hugo-site-manager
+   ```
+3. **Créer une nouvelle branche** pour votre fonctionnalité ou correctif :
+
+   ```bash
+   git checkout -b ma-nouvelle-fonctionnalite
+   ```
+4. **Faire vos modifications** et les committer avec un message clair :
+
+   ```bash
+   git commit -m "Ajouter une nouvelle fonctionnalité"
+   ```
+5. **Pousser votre branche** vers votre fork :
+
+   ```bash
+   git push origin ma-nouvelle-fonctionnalite
+   ```
+6. **Ouvrir une Pull Request** sur le dépôt original et décrire vos modifications.
