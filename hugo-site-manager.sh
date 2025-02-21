@@ -95,6 +95,7 @@ function delete_site {
 function copy_example_site {
   # Define the path to the example site directory and the destination directory
   EXAMPLE_SITE_DIR="showcase/$THEME_NAME/themes/$THEME_NAME/exampleSite"
+    
   DESTINATION_DIR="$SITE_PATH"
 
   # Check if the example site directory exists

@@ -1,7 +1,10 @@
 # Ignore everything in the showcase directory
 showcase/*
+!showcase/.gitkeep
+configs/*
+!configs/.gitkeep
 
- Environments
+# Environments
 .env
 .venv
 env/

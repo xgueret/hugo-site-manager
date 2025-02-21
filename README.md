@@ -40,6 +40,40 @@ chmod +x hugo-site-manager.sh
 
 
 
+## How to install the latest version of Hugo on Ubuntu
+
+Visit the [Hugo releases page](https://github.com/gohugoio/hugo/releases) on GitHub to get the download link for the latest version.
+
+Once on the page, find the link to download the binary for your architecture (`hugo_extended_X.X.X_Linux-64bit.tar.gz`).
+
+**Download the latest version using `wget`:**
+
+```shell
+wget https://github.com/gohugoio/hugo/releases/download/v0.124.0/hugo_extended_0.124.0_Linux-64bit.tar.gz
+```
+
+<u>:sunglasses: ​Replace `0.124.0` with the version you want to install if a newer one is available.</u>
+
+**Extract the downloaded file:**
+
+```shell
+tar -xzf hugo_extended_0.124.0_Linux-64bit.tar.gz
+```
+
+**Move the `hugo` binary to a globally accessible directory like `/usr/local/bin`:**
+
+```shell
+sudo mv hugo /usr/local/bin/
+```
+
+**To verify that Hugo is correctly installed and globally accessible, run:**
+
+```shell
+hugo version
+```
+
+
+
 ## :facepunch: Contribution
 
 Contributions are welcome! If you'd like to contribute, please follow these steps:
